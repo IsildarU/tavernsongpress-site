@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" type="image/png" href="emblem.png">
+<title>Tavern Song Press</title>
+<meta name="description" content="Tavern Song Press: home of The Bombastic Busker, a bardic progression portal fantasy by Brandon Highbaugh. Read chapter one free.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=IM+Fell+English:ital@0;1&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+/* Layout: one parchment leaf, centered column; gilt streaks behind the hero; azure ink for every action. Single parchment look by design. */
+:root {
+  color-scheme: light;
+  --parchment: #e8d6b0;
+  --parchment-deep: #d9c08f;
+  --vellum: #f3e7c9;
+  --ink: #2c2216;
+  --ink-soft: #5b4a33;
+  --azure: #1f5fa8;
+  --azure-deep: #163f73;
+  --gold: #c9971f;
+  --gold-bright: #e6bf4a;
+  --rule: #b89863;
+  --display: "IM Fell English SC", "Palatino Linotype", Palatino, Georgia, serif;
+  --title: "IM Fell English", "Palatino Linotype", Palatino, Georgia, serif;
+  --body: "Crimson Pro", "Iowan Old Style", Georgia, "Times New Roman", serif;
+}
+* { box-sizing: border-box; }
+html { background: var(--parchment); overflow-x: clip; }
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 15% 10%, rgba(255,248,225,.55), transparent 55%),
+    radial-gradient(ellipse at 85% 90%, rgba(150,110,50,.18), transparent 60%),
+    radial-gradient(ellipse at 50% 50%, transparent 60%, rgba(120,85,35,.22) 100%),
+    var(--parchment);
+  color: var(--ink);
+  font: 400 1.125rem/1.65 var(--body);
+  padding-inline: 16px;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: .35;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .33 0 0 0 0 .16 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.leaf { position: relative; z-index: 1; max-width: 62rem; margin-inline: auto; padding-block: 1.5rem 3rem; }
+a { color: var(--azure); text-underline-offset: .18em; }
+a:hover { color: var(--azure-deep); }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 2px; }
+
+/* masthead */
+.mast { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  padding-bottom: .9rem; border-bottom: 1px solid var(--rule); }
+.mark { display: flex; align-items: center; gap: .6rem; font: 1.35rem/1 var(--display); color: var(--ink); text-decoration: none; letter-spacing: .02em; }
+.mark img { width: auto; height: 1.9rem; flex: none; }
+.mast nav { display: flex; gap: 1.25rem; font: 1rem/1 var(--display); letter-spacing: .04em; }
+.mast nav a { color: var(--ink-soft); text-decoration: none; }
+.mast nav a:hover { color: var(--azure); }
+
+/* gilt streaks */
+.streaks { position: absolute; inset: -2rem -30vw auto; height: 30rem; z-index: -1; pointer-events: none; overflow: hidden; }
+.streaks i { position: absolute; left: -10%; width: 120%; height: 1.4rem; border-radius: 50%;
+  background: linear-gradient(90deg, transparent 0%, rgba(201,151,31,.0) 8%, rgba(230,191,74,.55) 35%, rgba(201,151,31,.75) 55%, rgba(230,191,74,.3) 80%, transparent 100%);
+  filter: blur(.6px); transform: rotate(-9deg); }
+.streaks i:nth-child(1) { top: 7rem; }
+.streaks i:nth-child(2) { top: 9.2rem; height: .45rem; opacity: .8; transform: rotate(-8deg); }
+.streaks i:nth-child(3) { top: 21rem; height: .9rem; opacity: .55; transform: rotate(-10.5deg);
+  background: linear-gradient(90deg, transparent, rgba(31,95,168,.35) 30%, rgba(31,95,168,.55) 55%, transparent 90%); }
+.streaks i:nth-child(4) { top: 23rem; height: .3rem; opacity: .7; transform: rotate(-10deg); }
+
+/* hero */
+.hero { position: relative; display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); gap: 2.5rem; align-items: center; padding-block: 3rem 2.5rem; }
+.cover { width: 100%; max-width: 15rem; aspect-ratio: 2 / 3; height: auto; display: block; border-radius: 3px;
+  box-shadow: 0 1px 0 var(--gold-bright), 0 18px 34px -12px rgba(60,40,10,.55), 0 0 0 1px rgba(60,40,10,.25); transform: rotate(-1.5deg); }
+.eyebrow { font: 1rem/1.2 var(--display); letter-spacing: .12em; color: var(--azure); margin: 0 0 .6rem; }
+.hero h1 { font: 400 clamp(2.3rem, 6vw, 3.9rem)/1.02 var(--title); margin: 0; text-wrap: balance; letter-spacing: -.01em; }
+.hero h1 span { display: block; font-style: italic; font-size: .46em; line-height: 1.3; color: var(--ink-soft); margin-top: .5rem; letter-spacing: 0; }
+.byline { font-size: 1.05rem; color: var(--ink-soft); margin: .9rem 0 0; }
+.pitch { font-size: 1.2rem; max-width: 34rem; margin: 1.1rem 0 1.4rem; }
+.btn { display: inline-flex; align-items: center; gap: .55rem; padding: .85rem 1.4rem; border-radius: 3px; text-decoration: none;
+  font: 1.08rem/1 var(--display); letter-spacing: .06em; transition: transform .15s ease, box-shadow .15s ease, background .15s ease; }
+.btn-azure { background: var(--azure); color: var(--vellum); box-shadow: inset 0 -3px 0 var(--azure-deep), 0 0 0 1px var(--gold); }
+.btn-azure:hover { background: var(--azure-deep); color: var(--vellum); transform: translateY(-1px); }
+.btn-gold { background: linear-gradient(180deg, var(--gold-bright), var(--gold)); color: var(--ink); box-shadow: inset 0 -3px 0 rgba(90,60,10,.35), 0 0 0 1px rgba(90,60,10,.35); }
+.btn-gold:hover { color: var(--ink); transform: translateY(-1px); }
+.btn svg { width: 1.1rem; height: 1.1rem; flex: none; }
+.note { font-size: .98rem; color: var(--ink-soft); margin: .8rem 0 0; }
+
+/* chapter */
+.divider { display: flex; align-items: center; gap: 1rem; color: var(--gold); margin-block: 1rem; }
+.divider::before, .divider::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+.divider img { width: auto; height: 1.5rem; flex: none; }
+.chapter { position: relative; background: var(--vellum); max-width: 44rem; margin: 2rem auto; padding: clamp(1.5rem, 5vw, 3.25rem);
+  border-radius: 2px; box-shadow: 0 0 0 1px var(--rule), 0 22px 40px -24px rgba(70,45,10,.5); }
+.chapter::before { content: ""; position: absolute; inset: .5rem; border: 1px solid rgba(201,151,31,.55); pointer-events: none; }
+.chapter header { text-align: center; margin-bottom: 1.75rem; }
+.chapter .eyebrow { margin-bottom: .4rem; }
+.chapter h2 { font: 400 clamp(1.8rem, 4.5vw, 2.5rem)/1.1 var(--title); margin: 0; text-wrap: balance; }
+.chapter .meta { font-size: .95rem; color: var(--ink-soft); margin: .5rem 0 0; font-variant-numeric: oldstyle-nums; }
+.prose { max-width: 36rem; margin-inline: auto; }
+.prose p { margin: 0 0 1em; hyphens: auto; }
+.prose > p:first-of-type::first-letter { float: left; font: 4.4rem/.8 var(--display); color: var(--azure); padding: .35rem .5rem 0 0; }
+.prose p.sys { font-size: 1rem; line-height: 1.5; background: rgba(31,95,168,.07); border: 1px solid rgba(31,95,168,.35);
+  border-left: 3px solid var(--azure); padding: .6rem .85rem; color: var(--azure-deep); border-radius: 2px; }
+.chapter footer { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem 1.5rem; align-items: center; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); }
+
+/* patreon */
+.ahead { position: relative; max-width: 44rem; margin: 3rem auto 0; text-align: center; padding: 2.25rem 1.5rem; }
+.ahead h2 { font: 400 clamp(1.7rem, 4vw, 2.3rem)/1.1 var(--title); margin: 0 0 .7rem; text-wrap: balance; }
+.ahead p { max-width: 32rem; margin: 0 auto 1.4rem; }
+.ahead .url { display: block; margin-top: .9rem; font-size: .98rem; color: var(--ink-soft); }
+
+/* author */
+.author { max-width: 44rem; margin: 3rem auto 0; display: grid; grid-template-columns: minmax(0, 13rem) minmax(0, 1fr); gap: 2rem; align-items: center; }
+.portrait { width: 100%; max-width: 13rem; aspect-ratio: 4 / 5; height: auto; display: block; object-fit: cover; border-radius: 50% 50% 4px 4px / 38% 38% 4px 4px;
+  box-shadow: 0 0 0 3px var(--vellum), 0 0 0 5px var(--gold), 0 18px 30px -16px rgba(60,40,10,.55); }
+.author h2 { font: 400 clamp(1.7rem, 4vw, 2.2rem)/1.1 var(--title); margin: 0 0 .7rem; }
+.author p { margin: 0 0 .9rem; }
+@media (max-width: 40rem) { .author { grid-template-columns: minmax(0, 1fr); text-align: center; } .portrait { max-width: 11rem; margin-inline: auto; } }
+
+.foot { max-width: 44rem; margin: 3rem auto 0; padding-top: 1rem; border-top: 1px solid var(--rule); display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; justify-content: space-between; font-size: .95rem; color: var(--ink-soft); }
+
+@media (max-width: 40rem) {
+  .hero { grid-template-columns: minmax(0, 1fr); gap: 1.75rem; padding-block: 2rem 1.5rem; text-align: center; }
+  .cover { max-width: 11rem; margin-inline: auto; }
+  .pitch { margin-inline: auto; }
+  .mast { justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) { .btn { transition: none; } .btn:hover { transform: none; } }
+</style>
+</head>
+<body>
+
+<div class="leaf">
+  <header class="mast">
+    <a class="mark" href="#top" aria-label="Tavern Song Press home">
+      <img src="emblem.png" width="334" height="256" alt="">
+      Tavern Song Press
+    </a>
+    <nav aria-label="Sections"><a href="#chapter-one">Chapter One</a><a href="#patreon">Read Ahead</a><a href="#author">Author</a></nav>
+  </header>
+
+  <section class="hero" id="top">
+    <div class="streaks" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <img class="cover" src="cover.jpg" width="400" height="600" alt="Cover of The Bombastic Busker by Brandon Highbaugh">
+    <div>
+      <p class="eyebrow">Now playing on Royal Road</p>
+      <h1>The Bombastic Busker<span>A Bardic Progression Portal Fantasy</span></h1>
+      <p class="byline">by Brandon Highbaugh</p>
+      <p class="pitch">Chanter spent years playing guitar on street corners and in dive bars. Now he's a changeling in a world that hunts his kind, and his first song turns coins, darts and fists into explosives.</p>
+      <a class="btn btn-azure" href="https://www.royalroad.com/fiction/189111/the-bombastic-busker-a-bardic-progression-portal" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5C4 4.7 4.7 4 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5zM13 4h5.5c.8 0 1.5.7 1.5 1.5v13c0 .8-.7 1.5-1.5 1.5H13z" fill="currentColor"/></svg>
+        Read free on Royal Road
+      </a>
+      <p class="note">New chapters every Monday, Wednesday and Friday.</p>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true"><img src="emblem-gold.png" width="334" height="256" alt=""></div>
+
+  <article class="chapter" id="chapter-one" aria-labelledby="ch1-title">
+    <header>
+      <p class="eyebrow">Book One · Chapter One</p>
+      <h2 id="ch1-title">Overture into Aestra</h2>
+      <p class="meta">About 1,300 words · a 6-minute read</p>
+    </header>
+    <div class="prose">
+<p>A year of my life, signed away with a few simple gestures on a tablet while standing in a semi-enclosed booth that made a mockery of any sense of privacy. Countless chimes of affirmation sounded as others signed, each for their own reasons.</p>
+<p>Me?</p>
+<p>Just a failed musician with nothing left.</p>
+<p>This opportunity was a parting gift from my late brother, Aiden. Of course I signed. Who wouldn't? Veil was marketed as a revolutionary, fully immersive VRMMO (Virtual Reality Massively Multiplayer Online Game). "A new world, full of potential," as all the advertisements said.</p>
+<p>I would make the most of this alpha test. I remembered late-night conversations with Aiden fondly. He talked about his dreams and goals within Veil as I plucked out notes on my guitar. He’d been so excited to experience the fantastical new world. Not much was known about Veil, but he knew what he wanted to do. It was the same thing he did in real life, save those in need. His energy had been palpable, contagious.</p>
+<p>I would do it, in honor of his memory. I would be a goddamned hero.</p>
+<p>Cherry blossom petals drifted around me, generated from thin air about ten feet above where I stood. The blossoms remained on the ground for a few moments before dissipating.</p>
+<p>I reached out and grabbed one between featureless fingers. Calluses built over years spent playing guitar were just… gone. My arms, legs—my whole body—was a smooth off-white.</p>
+<p>I squeezed the blossom. The silky texture gained the faintest hint of moisture, releasing a familiar perfume. I rubbed it gently, bringing it to my face and inhaling. The realism surpassed my expectations.</p>
+<p>The scent of cherry blossom petals reminded me of a festival my city held every spring. I’d been there with my younger brother just a few months ago.</p>
+<p>I remembered us walking down a path, laughing and sharing a fried pastry we bought from a food vendor, planning our reunion a year and a half later when he would emerge from the alpha.</p>
+<p>That was the day he told me he’d been accepted into Veil, one of 10,000 from millions of hopefuls. He was the whole reason I was here. I wasn’t chosen. I was, however, a close enough biological match to my brother that I had been placed on a reserve list as a backup.</p>
+<p>A tragic loss of life, the news outlets called it. Dozens dead in a raging apartment fire. It had been his last night on duty at the fire department before taking an extended vacation to participate in the alpha. He’d managed to save a little girl. Her family had been at the funeral.</p>
+<p>It felt like months had passed since that day, years even. It also seemed like yesterday. I squeezed the petal between my fingers harder, and it dissipated into tiny motes of pink light that drifted apart.</p>
+<p>Text appeared, floating in front of me.</p>
+<p class="sys"><strong>[Initiating integration into the world of Aestra…]</strong></p>
+<p>I looked around, and the text followed my field of vision, fixed in the center of my view.</p>
+<p>It didn’t produce the motion sickness I’d come to expect from the heads-up display in other VR games. It felt natural, which was an odd feeling since text floating in the air was anything but.</p>
+<p>After a few moments, the text blinked and was replaced with:</p>
+<p class="sys"><strong>[Cognitive resonance with Aestra attuned!]</strong></p>
+<p class="sys"><strong>[Adjusting and Preparing Individual Cognitive and Physical Specifications…]</strong></p>
+<p>Cognitive and Physical Specifications? What an odd way of describing what seemed to be a character creation screen, but I chalked it up to being an immersive element, which was a nice touch.</p>
+<p>A large, semi-transparent circular display populated in front of me, a variety of races from the shoulders up depicting <strong>Elf</strong>, <strong>Dwarf</strong>, <strong>Gnome</strong>, <strong>Human</strong>, and <strong>Beastkin</strong>. The races all had drop-down menus denoting sub-races. There were several other grayed-out boxes with shadowy figures labeled <strong>Unavailable</strong>. I mentally selected the drop-down for <strong>Elf</strong>, and a submenu appeared displaying three options: <strong>Wood Elf</strong>, <strong>High Elf</strong>, and <strong>Aquatic Elf</strong>.</p>
+<p>They all looked like variations of the stereotypically slender, attractive elf found in most fictional worlds. Aquatic elves had a bluish tint to their skin and gills on their necks; their eyes had some kind of film over them.</p>
+<p>I closed the submenu and went back, noticing an icon in a box on the bottom right. It stood out as the only box not containing a headshot. Three interwoven arches stood side by side, overlapping and drawn inward at the edges. They were a dull, bronze-like metallic color.</p>
+<p class="sys"><strong>[Random - randomizes race and forgoes class selection. This option is not recommended for beginners! Class selection will be completed by an evaluation at the Adventurer’s Guild. Provides a small bonus to skill experience up to Mastery rank. Currently unavailable.]</strong></p>
+<p>I looked back at the other icons that were grayed out and marked as unavailable, momentarily confused because this random icon was not similarly grayed out. There was no "unavailable" text overlaying the symbol like the other unavailable options. The only indicator that it was not selectable was in the description. I pulled up the description to read it again, and the entire display flickered for a few seconds before distorting and minimizing. It was replaced with a wall of text, which spoke in my mind in an excited voice as I read it.</p>
+<p class="sys"><strong>[You have selected "Random!" Brave choice! The world of </strong><strong><em>Aestra</em></strong><strong> is unforgiving and dangerous. You will begin with a bonus to skill advancement and an item: </strong><strong><em>Chit of Admittance</em></strong><strong>. Seek out the Adventurer’s Guild in your starting town for next steps!]</strong></p>
+<p>The field exploded into countless pixels that continued breaking apart into smaller pieces as the ground gave way beneath my feet and I fell backwards into blackness. It lasted less than a second, and I landed hard as the world reformed around me.</p>
+<p>I lay in an alley between two buildings cobbled together from a variety of metals and wood. One of my feet sank in a filthy puddle of what I hoped was water. I sat up, looking around for my instrument in a moment of panic before remembering I was a world away.</p>
+<p>"I didn’t choose ‘random,’" I grumbled. A sense of betrayal surged through me. There was no re-rolling characters in Veil, not in the alpha at least. The choice had been ripped from my hands by a system glitch.</p>
+<p>My arms and hands were no longer the blank white they had been in the character creation screen. They were now sickly and pale, elongated, with nearly translucent nails. How would the frets feel under these fingers?</p>
+<p>I wore filthy rags that could barely be called clothing. My shoes were nothing more than two strips of thick cloth sewn to pieces of leather, one of which was now soaked thanks to my unfortunate entrance.</p>
+<p>As I climbed to my feet, a gruff voice from behind pulled me from my thoughts.</p>
+<p>"What’s this, now?" The words ran together in a barely understandable slur.</p>
+<p>A human man in a tattered leather vest and pants stood nearby. He stepped closer, worn boots crunching something underfoot. He brandished a wickedly curved dagger. The sense of betrayal drained from my body, replaced with a knot of tension and fear.</p>
+<p>"It’s my lucky day. Guards’ll pay gold for your head, baby-snatcher." He sneered, stepping towards me.</p>
+<p>I raised my hands and took a hesitant step back. A nameplate above his head read Jack in gently glowing blue lettering.</p>
+<p>A notification appeared, and time seemed to slow as I read it. The text was accompanied by the same voice from character creation:</p>
+<p class="sys"><strong>[New Quest! </strong><strong><em>Evade capture</em></strong><strong>. You have been recognized as a wanted race. Convince your assailant, through words or actions, not to turn you in.]</strong></p>
+<p class="sys"><strong>[Reward: Zinc Clothing Chest, Copper Adventurer’s Chest, Copper Coins x10, Experience Points x1,000.]</strong></p>
+<p class="sys"><strong>[WARNING! This is a compulsory quest. It will be accepted automatically. Failure will result in negative consequences, up to and including death.]</strong></p>
+    </div>
+    <footer>
+      <a class="btn btn-azure" href="https://www.royalroad.com/fiction/189111/the-bombastic-busker-a-bardic-progression-portal/chapter/3889588/book-1-chapter-2-the-first-transformation" target="_blank" rel="noopener">Continue to Chapter Two</a>
+      <a href="https://www.royalroad.com/fiction/189111/the-bombastic-busker-a-bardic-progression-portal" target="_blank" rel="noopener">Follow on Royal Road</a>
+    </footer>
+  </article>
+
+  <section class="ahead" id="patreon" aria-labelledby="patreon-title">
+    <div class="divider" aria-hidden="true"><img src="emblem-gold.png" width="334" height="256" alt=""></div>
+    <h2 id="patreon-title">Can't wait for the next song?</h2>
+    <p>Patrons read chapters before they reach Royal Road and help keep Chanter playing.</p>
+    <a class="btn btn-gold" href="https://www.patreon.com/brandonhighbaugh" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="14.5" cy="9.5" r="6.5" fill="currentColor"/><rect x="3" y="3" width="3.5" height="18" fill="currentColor"/></svg>
+      Read ahead on Patreon
+    </a>
+    <span class="url">patreon.com/brandonhighbaugh</span>
+  </section>
+
+  <section class="author" id="author" aria-labelledby="author-title">
+    <img class="portrait" src="author.jpg" width="640" height="800" alt="Brandon Highbaugh smiling and throwing a shaka at a convention panel table" loading="lazy">
+    <div>
+      <p class="eyebrow">The Author</p>
+      <h2 id="author-title">Brandon Highbaugh</h2>
+      <p>Brandon Highbaugh writes The Bombastic Busker, a bardic progression portal fantasy about a street musician who turns songs into explosive magic. Book One is written, and the next book is in the works.</p>
+      <p><a href="https://www.royalroad.com/profile/758871" target="_blank" rel="noopener">Royal Road profile</a> · <a href="https://www.patreon.com/brandonhighbaugh" target="_blank" rel="noopener">Patreon</a></p>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <span>© 2026 Tavern Song Press</span>
+    <span>The Bombastic Busker © Brandon Highbaugh</span>
+  </footer>
+</div>
+</body>
+</html>
