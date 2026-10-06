@@ -126,6 +126,18 @@ a:hover { color: var(--azure-deep); }
 .scene-break::before { background: linear-gradient(90deg, transparent, var(--gold)); }
 .scene-break::after { background: linear-gradient(90deg, var(--gold), transparent); }
 .scene-break img { height: 1.4rem; width: auto; opacity: .85; }
+/* chapter reading window */
+.reader { position: relative; }
+.reader.is-collapsed .reader-window { max-height: min(34rem, 70vh); overflow-y: auto; overscroll-behavior: contain;
+  border-block: 1px solid var(--rule); padding-block: 1.25rem; scrollbar-width: thin; scrollbar-color: var(--gold) transparent; }
+.reader-window:focus-visible { outline: 2px solid var(--azure); outline-offset: 4px; }
+.reader.is-collapsed::after { content: ""; position: absolute; left: 0; right: 0; bottom: 1px; height: 4.5rem; pointer-events: none;
+  background: linear-gradient(to bottom, rgba(243,231,201,0), var(--vellum)); transition: opacity .2s ease; }
+.reader.is-collapsed.at-end::after { opacity: 0; }
+.reader-toggle { display: flex; justify-content: center; margin-top: 1.25rem; }
+.reader-toggle .btn { cursor: pointer; }
+.btn-ghost { background: transparent; color: var(--azure); border: 1px solid var(--gold); }
+.btn-ghost:hover { background: rgba(31,95,168,.08); color: var(--azure-deep); }
 .chapter footer { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem 1.5rem; align-items: center; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); }
 
 /* patreon */
@@ -207,131 +219,136 @@ a:hover { color: var(--azure-deep); }
       <h2 id="ch1-title">Overture; 10001 // Aestra</h2>
       <p class="meta">About 3,800 words · a 16-minute read</p>
     </header>
+    <div class="reader is-collapsed" id="reader">
+      <div class="reader-window" id="reader-window" tabindex="0" aria-label="Chapter One text, scrollable">
     <div class="prose">
-<p class="dateline">25 MINUTES BEFORE THE LAUNCH OF VEIL ALPHA</p>
-<p class="lead">Elena stood on shaky legs, hands pressed to either side of her keyboard. Lips parted slightly, she stared at a series of equations and figures on the curved monitor taking up most of her desk. Sweat beaded across her forehead despite the cool room.</p>
-<p>Her eyes darted across the screen again, <em>willing</em> the figures to change. They didn’t. Of course they didn’t. The solid, unwavering certainty of numbers was what had drawn her to this profession.</p>
-<p>She glanced down at the time. The alpha was scheduled to begin within the next half hour. It wasn’t too late. She could stop it.</p>
-<p>Elena went to sit back down and nearly fell, catching herself and righting her chair. She sat and typed in the command to bring up the launch system code base for <em>Veil</em>. Few could see the privileged information, but the Director of Cognitive Transference, or the "Director of the Deep Dive," as the team had taken to calling her, had full access to the system.</p>
-<p>A message flashed across the screen in blocky red letters, one she hadn’t seen in 15 years of working at the Habashi Corporation:</p>
-<p class="sys"><strong>[ACCESS DENIED]</strong></p>
-<p>She closed the window, typed in her credentials once more, and received the same message. She blinked.</p>
-<p>She was locked out of the system. Why? Did they already know what she had just discovered, nestled deep among server file configurations far from where it belonged? Buried. Had someone <em>buried</em> this information?</p>
-<p>Elena glanced at the clock once more. It had already been several minutes since she first discovered the file. The last 48 hours had flashed by as she delved deep into the code after noticing a minor disparity that had passed through 10 tiers of careful scrutiny before coming across her desk for final approval. A single mismatched set of data among thousands. But she was Elena "Hawkeye" Thompson. Numbers spoke to her, and that set whispered of lies.</p>
-<p>So she began digging.</p>
-<p>What followed were two sleepless days of searching for the missing subsection of code, fueled only by coffee and a desperate desire to scratch the itch in the back of her mind. Why were the numbers off? She hoped it would be nothing more than a mismatched algorithm.</p>
-<p>When she found it, a wave of dopamine flooded her sleep-deprived mind. Shifting her glasses and rubbing at the sore spots where they’d sat for too long, she read the data, quickly identifying a bit of information that didn’t belong. It changed the whole dataset. She re-ran the calculation with the correct values and came to a conclusion that nearly made her vomit.</p>
-<p>And now she was locked out.</p>
-<p>Had whoever buried the data also flagged the file so they would be notified when it was accessed? It would have been a simple thing to do. Elena fought down another wave of nausea. Someone must have hacked the system, removing her access so the launch wouldn’t be interrupted.</p>
-<p>She went to send Kazu Habashi a message, but he was logged off. She shook her head. He would have just finished with the press briefing about Veil’s alpha, hyping the launch.</p>
-<p>Kazu was always honorable and empathetic; he would be willing to delay the launch to hear her out. He was the only person with higher system access than hers. She needed to get to him, warn him, before it was too late.</p>
-<p>But why? Why would anyone want this to happen? Such a disaster would ruin any business, even one as unassailable as the Habashi Corporation.</p>
-<p>Elena stood, sending her chair crashing to the ground. She turned, forgetting to lock her computer for the first time in 15 years, and ran from her office. She sprinted past her assistant, Allen, who glanced up in confusion as she raced by. Dashing down the hall, she passed a group of developers engaged in conversation near the coffee maker and tore past the elevators.</p>
-<p>Kazu’s boardroom was one story up, on the top floor of the Habashi Building. Elena hit the door to the stairs without slowing, shoving on the horizontal bar with both hands. The built-in shock absorbers kept the door from slamming open. She pushed with all of her might, fighting against the door, until it finally opened just wide enough for her to slip through.</p>
-<p>She took the stairs two at a time, crashing into the door to the top floor and holding her badge over the reader affixed to the wall. For a moment, she felt a sense of dread. Had they removed her card privileges too? The light flashed green and the door <em>clicked</em> open.</p>
-<p>The red plush carpet was soft under her thin socks. Elena looked down, eyes widening. In her haste, she’d forgotten to put her loafers back on. She pushed the thought away. It didn’t matter. All that mattered was getting to Kazu in time to stop Veil from launching.</p>
-<p>She ran down the hall, proximity lights flickering on as she passed under them. The top floor of the building was infrequently used; it was mostly for hosting foreign dignitaries and businessmen. She turned two corners, hurrying down the wide, empty halls.</p>
-<p>One more turn and she ran head-first into a wall of muscle. Kojima, Kazu’s head of security, knelt to help her off the ground.</p>
-<p>"Elena, are you okay? Why are you running—" He looked her over, eyes first widening with concern, then narrowing with suspicion as he took in her disheveled hair, missing shoes, and heaving breaths.</p>
-<p>"I need to see Kazu right away. It’s an emergency."</p>
-<p>"He is in a meeting and mustn’t be disturbed."</p>
-<p>"<em>Please</em>, Kojima. It’s important. Ten thousand lives are at stake." She enunciated each word in a rush.</p>
-<p>"Ten thousand? Do you mean Veil? The alpha? Did something happen?"</p>
-<p>"There’s no time, please! I must speak with Kazu!" Her breath came in ragged gasps as she tried to go around the large man, who held out an arm and stopped her.</p>
-<p>"One moment." He turned and placed his hand against a flat gray panel beside the door, which <em>clicked</em> softly. He pulled it open, stepping inside and closing it.</p>
-<p>A small group of men stood around a massive boardroom table talking quietly amongst themselves. The door closed a moment later, cutting off Elena’s view.</p>
-<p>She shifted her weight from foot to foot, cringing at the pressure in her full bladder, but shoved the urge to the back of her mind. Ten thousand lives. It consumed her every thought. Ten thousand lives. <em>Ten thousand lives</em>. Each second felt like an hour. An eternity. She placed an ear against the cold metal door but could hear nothing. Of course the wealthiest family in the world would have a soundproofed boardroom.</p>
-<p>Elena groaned, trying the handle. It didn’t budge, the door issuing a single beep of warning. She pressed her hand against the sensor. It flashed red. She’d never had access to this room, but she still had to try.</p>
-<p>The door opened, and Kojima motioned for her to enter. She hurried into the room, looking around at the group of unfamiliar faces until she spotted Kazu. He stood at the far end of the table, a stern expression on his face, eyes devoid of their usual warmth.</p>
-<p>"Elena? Why are you here? Veil launches in minutes." He paused, eyes moving from her messy hair to her shoeless feet. "When was the last time you slept?"</p>
-<p>"We have to stop the launch!" Her voice broke with strain. "We have to stop it, <em>now!"</em></p>
-<p>"Mr. Habashi, who is this woman? She appears quite mad," asked a tall, thin man in a fine suit with a distinctive British accent.</p>
-<p>"Elena is the Director of Cognitive Transference. What is the matter, Elena?"</p>
-<p>"We have to stop the launch!" Elena struggled with herself for a moment, fighting to say something <em>more</em>, to elaborate further on the dangerous precipice they wavered upon. Her mind seemed to be stuck in a loop. "Ten thousand lives are at stake!"</p>
-<p>Kazu squinted at her.</p>
-<p>A pale man with an American drawl spoke. "She found it. I told you she would."</p>
-<p>"Found…" Elena looked from the pale man to Kazu, who still stood at the far end of the long boardroom table. "You knew they would all die?"</p>
-<p>"That is where you are mistaken. They aren’t going to <em>die</em>." Kazu spoke with gentle resolve, some of the chill in his gaze melting. "They are going on a journey."</p>
-<p>"I saw the numbers. I did the calculations. They will die when they enter those pods."</p>
-<p>"Yes, their bodies wi—" Kazu was interrupted by another man, one Elena hadn’t noticed in her frantic initial search for Kazu.</p>
-<p>"That is confidential," the man held up his hand. He wore a military uniform that Elena wasn’t able to identify. Close-cropped gray hair topped a heavily scarred head. His accent was also American, though more clipped, biting off the words. "She must not be told."</p>
-<p>"She already knows too much," the other American chimed in. "I warned you about her. We should have cut access to the file days ago when she started digging."</p>
-<p>"Elena has been with the Habashi Corporation for fifteen years. If anyone can be trusted with this information, it is her."</p>
-<p>"That is the problem," the military man said. "<em>No one</em> can be trusted with this information."</p>
-<p>Kazu glowered at the man for a long moment. Elena’s heart raced.</p>
-<p>"We don’t have time for this!" she shouted. "People are going to die! <em>Ten thousand!"</em></p>
-<p>Kazu looked away, his shoulders falling. The man in the military attire smiled, nodding to the other American.</p>
-<p>"Ten thousand and <em>one</em>," the American said, a mocking edge to his voice. "So kind of you to volunteer."</p>
-<p>"That is not going to hap—" Kazu was cut off once again by the military man.</p>
-<p>"It <em>is</em>. You should have kept a tighter leash on your people; this is on you." His cold gaze shifted from Kazu to Elena, then back. "The project will continue. The abnormality requires further study, as you know."</p>
-<p>Kazu sighed. “Take her four doors down. The floor model is functional. Initiate the process.” He nodded to Kojima as he spoke.</p>
-<p>The big man hesitated for a moment, a look of confusion on his face. "Doesn’t she need to be cleansed first, like the other participants?"</p>
-<p>Elena’s mind whirled. Was this really happening? Was she about to die? She turned and grabbed the door handle as Kazu replied. The handle didn’t budge.</p>
-<p>"That process isn’t necessary. It’s as she said; the bodies die. The minds, however—" He was interrupted by the same man yet again, but Kazu raised his voice and continued over his protestations. "She will be gone soon. There is no way back. It is a one-way trip. The secret is safe."</p>
-<p>Kazu looked to Elena, warmth and regret softening his gaze. "You will see, Elena. Your mind will go somewhere else. A new world, full of potential. Energy. Resources. We haven’t determined much beyond that; the flow of energy travels away from us and must be studied further. Veil is not a game. It is a… <em>portal</em>, of sorts. Those who enter are recreated, though we still have much to learn. The journey is one way. It only takes information, getting it back is nearly impossible. Finding a way to reverse or simply tap into this power could solve the resource problem our world faces." He sighed, nodding to Kojima once again.</p>
-<p>"You’re killing them!" she screamed. "You’re killing me!"</p>
-<p>Kojima’s hands wrapped around her upper arms, twin grips like unyielding steel. He stepped to the door as Kazu walked around the table and placed his hand on the sensor, opening it.</p>
-<p>"You aren’t going to die. Your mind will live. We know that much. After this test, we will know more. I wish you the best in your new life."</p>
-<p>Elena struggled against Kojima, but his hands were immovable; it was like fighting a mountain. She screamed as he began walking her down the hall.</p>
-<p>"You’re killing me! You’re killing me!" she repeated the words, a mantra to fight back the dread that threatened to drown her. Her mind reeled, unable to form a coherent thought, stuck in a loop.</p>
-<p>She was going to <em>die</em>. She thought of her cat, Cheshire. He had an automatic feeder and an automatic litter box, but they wouldn’t last forever. A few more days, at most. The realization pulled her out of the spiral. Her baby. Tears spilled over her cheeks, and snot clogged her nose.</p>
-<p>"My baby, please, please no." She sniffed and began sobbing. "My Cheshire kitty. <em>Please</em>."</p>
-<p>Kojima placed a hand against the sensor. Elena pulled with all she had, but Kojima’s other hand held her in place with ease. He trembled. They had known each other. Not closely, but she had been an officer with the corporation for more than a decade. They were far from strangers.</p>
-<p>"Please, Kojima. Don’t let Cheshire starve."</p>
-<p>Kojima pulled her into the small room. A pod sat in the middle. Thick bundles of wiring ran down from the ceiling and up from the floor into the egg-shaped device.</p>
-<p>"Please." She whispered the word. Her throat burned from screaming. She was <em>tired</em>. There was a cold wetness at her crotch; she had relieved herself at some point in the struggle. She didn’t care.</p>
-<p>Her breath was barely more than a whisper. "Please don’t let Cheshie die."</p>
-<p>Kojima turned Elena, guiding her into the machine with a firm hand. She tried to resist. For the briefest moment, she managed to stop him from pushing her in.</p>
-<p>"I will see that Cheshire is taken care of. Stop resisting. This must happen." A single tear welled in the stoic man’s eye.</p>
-<p>She sighed, his words a balm to her tempestuous mind. She stopped fighting. It had taken all of the physical might she could muster just to resist at all. Cheshire would be okay. Above all else, Kojima held to his own peculiar sense of honor and duty. She sat back, a great weight shifting from her shoulders. There was a strong pinch as something injected into her upper arm.</p>
-<p>She slept. A brief moment of darkness; then she was standing on rolling hills that stretched as far as she could see in every direction. Soft grass sank below her feet. Elena looked down at her hands and arms. They were a featureless white. Her body was a blank avatar, like a mannequin.</p>
-<p>She recognized this field, her figure. They were programmed into the game. The character generation sequence. A blank slate to begin in a new world. It was <em>real</em>. But how?</p>
-<p>Text appeared, floating in front of her.</p>
-<p class="sys"><strong>[System booting…]</strong></p>
-<div class="scene-break" aria-hidden="true"><img src="emblem-gold.png" width="334" height="256" alt=""></div>
-<p>A year of my life, signed away with a few simple gestures on a tablet while standing in a semi-enclosed booth that made a mockery of any sense of privacy. Countless chimes of affirmation sounded as others signed, each for their own reasons.</p>
-<p>Me?</p>
-<p>Just a failed musician with nothing left.</p>
-<p>This opportunity was a parting gift from my late brother, Aiden. Of course I signed. Who wouldn't? Veil was marketed as a revolutionary, fully immersive VRMMO (Virtual Reality Massively Multiplayer Online Game). "A new world, full of potential," as all the advertisements said.</p>
-<p>I would make the most of this alpha test. I remembered late-night conversations with Aiden fondly. He talked about his dreams and goals within Veil as I plucked out notes on my guitar. He’d been so excited to experience the fantastical new world. Not much was known about Veil, but he knew what he wanted to do. It was the same thing he did in real life, save those in need. His energy had been palpable, contagious.</p>
-<p>I would do it, in honor of his memory. I would be a goddamned hero.</p>
-<p>Cherry blossom petals drifted around me, generated from thin air about ten feet above where I stood. The blossoms remained on the ground for a few moments before dissipating.</p>
-<p>I reached out and grabbed one between featureless fingers. Calluses built over years spent playing guitar were just… gone. My arms, legs—my whole body—was a smooth off-white.</p>
-<p>I squeezed the blossom. The silky texture gained the faintest hint of moisture, releasing a familiar perfume. I rubbed it gently, bringing it to my face and inhaling. The realism surpassed my expectations.</p>
-<p>The scent of cherry blossom petals reminded me of a festival my city held every spring. I’d been there with my younger brother just a few months ago.</p>
-<p>I remembered us walking down a path, laughing and sharing a fried pastry we bought from a food vendor, planning our reunion a year and a half later when he would emerge from the alpha.</p>
-<p>That was the day he told me he’d been accepted into Veil, one of 10,000 from millions of hopefuls. He was the whole reason I was here. I wasn’t chosen. I was, however, a close enough biological match to my brother that I had been placed on a reserve list as a backup.</p>
-<p>A tragic loss of life, the news outlets called it. Dozens dead in a raging apartment fire. It had been his last night on duty at the fire department before taking an extended vacation to participate in the alpha. He’d managed to save a little girl. Her family had been at the funeral.</p>
-<p>It felt like months had passed since that day, years even. It also seemed like yesterday. I squeezed the petal between my fingers harder, and it dissipated into tiny motes of pink light that drifted apart.</p>
-<p>Text appeared, floating in front of me.</p>
-<p class="sys"><strong>[Initiating integration into the world of Aestra…]</strong></p>
-<p>I looked around, and the text followed my field of vision, fixed in the center of my view.</p>
-<p>It didn’t produce the motion sickness I’d come to expect from the heads-up display in other VR games. It felt natural, which was an odd feeling since text floating in the air was anything but.</p>
-<p>After a few moments, the text blinked and was replaced with:</p>
-<p class="sys"><strong>[Cognitive resonance with Aestra attuned!]</strong></p>
-<p class="sys"><strong>[Adjusting and Preparing Individual Cognitive and Physical Specifications…]</strong></p>
-<p>Cognitive and Physical Specifications? What an odd way of describing what seemed to be a character creation screen, but I chalked it up to being an immersive element, which was a nice touch.</p>
-<p>A large, semi-transparent circular display populated in front of me, a variety of races from the shoulders up depicting <strong>Elf</strong>, <strong>Dwarf</strong>, <strong>Gnome</strong>, <strong>Human</strong>, and <strong>Beastkin</strong>. The races all had drop-down menus denoting sub-races. There were several other grayed-out boxes with shadowy figures labeled <strong>Unavailable</strong>. I mentally selected the drop-down for <strong>Elf</strong>, and a submenu appeared displaying three options: <strong>Wood Elf</strong>, <strong>High Elf</strong>, and <strong>Aquatic Elf</strong>.</p>
-<p>They all looked like variations of the stereotypically slender, attractive elf found in most fictional worlds. Aquatic elves had a bluish tint to their skin and gills on their necks; their eyes had some kind of film over them.</p>
-<p>I closed the submenu and went back, noticing an icon in a box on the bottom right. It stood out as the only box not containing a headshot. Three interwoven arches stood side by side, overlapping and drawn inward at the edges. They were a dull, bronze-like metallic color.</p>
-<p class="sys"><strong>[Random - randomizes race and forgoes class selection. This option is not recommended for beginners! Class selection will be completed by an evaluation at the Adventurer’s Guild. Provides a small bonus to skill experience up to Mastery rank. Currently unavailable.]</strong></p>
-<p>I looked back at the other icons that were grayed out and marked as unavailable, momentarily confused because this random icon was not similarly grayed out. There was no "unavailable" text overlaying the symbol like the other unavailable options. The only indicator that it was not selectable was in the description. I pulled up the description to read it again, and the entire display flickered for a few seconds before distorting and minimizing. It was replaced with a wall of text, which spoke in my mind in an excited voice as I read it.</p>
-<p class="sys"><strong>[You have selected "Random!" Brave choice! The world of</strong> <strong><em>Aestra</em></strong> <strong>is unforgiving and dangerous. You will begin with a bonus to skill advancement and an item:</strong> <strong><em>Chit of Admittance</em></strong><strong>. Seek out the Adventurer’s Guild in your starting town for next steps!]</strong></p>
-<p>The field exploded into countless pixels that continued breaking apart into smaller pieces as the ground gave way beneath my feet and I fell backwards into blackness. It lasted less than a second, and I landed hard as the world reformed around me.</p>
-<p>I lay in an alley between two buildings cobbled together from a variety of metals and wood. One of my feet sank in a filthy puddle of what I hoped was water. I sat up, looking around for my instrument in a moment of panic before remembering I was a world away.</p>
-<p>"I didn’t choose ‘random,’" I grumbled. A sense of betrayal surged through me. There was no re-rolling characters in Veil, not in the alpha at least. The choice had been ripped from my hands by a system glitch.</p>
-<p>My arms and hands were no longer the blank white they had been in the character creation screen. They were now sickly and pale, elongated, with nearly translucent nails. How would the frets feel under these fingers?</p>
-<p>I wore filthy rags that could barely be called clothing. My shoes were nothing more than two strips of thick cloth sewn to pieces of leather, one of which was now soaked thanks to my unfortunate entrance.</p>
-<p>As I climbed to my feet, a gruff voice from behind pulled me from my thoughts.</p>
-<p>"What’s this, now?" The words ran together in a barely understandable slur.</p>
-<p>A human man in a tattered leather vest and pants stood nearby. He stepped closer, worn boots crunching something underfoot. He brandished a wickedly curved dagger. The sense of betrayal drained from my body, replaced with a knot of tension and fear.</p>
-<p>"It’s my lucky day. Guards’ll pay gold for your head, baby-snatcher." He sneered, stepping towards me.</p>
-<p>I raised my hands and took a hesitant step back. A nameplate above his head read Jack in gently glowing blue lettering.</p>
-<p>A notification appeared, and time seemed to slow as I read it. The text was accompanied by the same voice from character creation:</p>
-<p class="sys"><strong>[New Quest!</strong> <strong><em>Evade capture</em></strong><strong>. You have been recognized as a wanted race. Convince your assailant, through words or actions, not to turn you in.]</strong></p>
-<p class="sys"><strong>[Reward: Zinc Clothing Chest, Copper Adventurer’s Chest, Copper Coins x10, Experience Points x1,000.]</strong></p>
-<p class="sys"><strong>[WARNING! This is a compulsory quest. It will be accepted automatically. Failure will result in negative consequences, up to and including death.]</strong></p>
+  <p class="dateline">25 MINUTES BEFORE THE LAUNCH OF VEIL ALPHA</p>
+  <p class="lead">Elena stood on shaky legs, hands pressed to either side of her keyboard. Lips parted slightly, she stared at a series of equations and figures on the curved monitor taking up most of her desk. Sweat beaded across her forehead despite the cool room.</p>
+  <p>Her eyes darted across the screen again, <em>willing</em> the figures to change. They didn’t. Of course they didn’t. The solid, unwavering certainty of numbers was what had drawn her to this profession.</p>
+  <p>She glanced down at the time. The alpha was scheduled to begin within the next half hour. It wasn’t too late. She could stop it.</p>
+  <p>Elena went to sit back down and nearly fell, catching herself and righting her chair. She sat and typed in the command to bring up the launch system code base for <em>Veil</em>. Few could see the privileged information, but the Director of Cognitive Transference, or the "Director of the Deep Dive," as the team had taken to calling her, had full access to the system.</p>
+  <p>A message flashed across the screen in blocky red letters, one she hadn’t seen in 15 years of working at the Habashi Corporation:</p>
+  <p class="sys"><strong>[ACCESS DENIED]</strong></p>
+  <p>She closed the window, typed in her credentials once more, and received the same message. She blinked.</p>
+  <p>She was locked out of the system. Why? Did they already know what she had just discovered, nestled deep among server file configurations far from where it belonged? Buried. Had someone <em>buried</em> this information?</p>
+  <p>Elena glanced at the clock once more. It had already been several minutes since she first discovered the file. The last 48 hours had flashed by as she delved deep into the code after noticing a minor disparity that had passed through 10 tiers of careful scrutiny before coming across her desk for final approval. A single mismatched set of data among thousands. But she was Elena "Hawkeye" Thompson. Numbers spoke to her, and that set whispered of lies.</p>
+  <p>So she began digging.</p>
+  <p>What followed were two sleepless days of searching for the missing subsection of code, fueled only by coffee and a desperate desire to scratch the itch in the back of her mind. Why were the numbers off? She hoped it would be nothing more than a mismatched algorithm.</p>
+  <p>When she found it, a wave of dopamine flooded her sleep-deprived mind. Shifting her glasses and rubbing at the sore spots where they’d sat for too long, she read the data, quickly identifying a bit of information that didn’t belong. It changed the whole dataset. She re-ran the calculation with the correct values and came to a conclusion that nearly made her vomit.</p>
+  <p>And now she was locked out.</p>
+  <p>Had whoever buried the data also flagged the file so they would be notified when it was accessed? It would have been a simple thing to do. Elena fought down another wave of nausea. Someone must have hacked the system, removing her access so the launch wouldn’t be interrupted.</p>
+  <p>She went to send Kazu Habashi a message, but he was logged off. She shook her head. He would have just finished with the press briefing about Veil’s alpha, hyping the launch.</p>
+  <p>Kazu was always honorable and empathetic; he would be willing to delay the launch to hear her out. He was the only person with higher system access than hers. She needed to get to him, warn him, before it was too late.</p>
+  <p>But why? Why would anyone want this to happen? Such a disaster would ruin any business, even one as unassailable as the Habashi Corporation.</p>
+  <p>Elena stood, sending her chair crashing to the ground. She turned, forgetting to lock her computer for the first time in 15 years, and ran from her office. She sprinted past her assistant, Allen, who glanced up in confusion as she raced by. Dashing down the hall, she passed a group of developers engaged in conversation near the coffee maker and tore past the elevators.</p>
+  <p>Kazu’s boardroom was one story up, on the top floor of the Habashi Building. Elena hit the door to the stairs without slowing, shoving on the horizontal bar with both hands. The built-in shock absorbers kept the door from slamming open. She pushed with all of her might, fighting against the door, until it finally opened just wide enough for her to slip through.</p>
+  <p>She took the stairs two at a time, crashing into the door to the top floor and holding her badge over the reader affixed to the wall. For a moment, she felt a sense of dread. Had they removed her card privileges too? The light flashed green and the door <em>clicked</em> open.</p>
+  <p>The red plush carpet was soft under her thin socks. Elena looked down, eyes widening. In her haste, she’d forgotten to put her loafers back on. She pushed the thought away. It didn’t matter. All that mattered was getting to Kazu in time to stop Veil from launching.</p>
+  <p>She ran down the hall, proximity lights flickering on as she passed under them. The top floor of the building was infrequently used; it was mostly for hosting foreign dignitaries and businessmen. She turned two corners, hurrying down the wide, empty halls.</p>
+  <p>One more turn and she ran head-first into a wall of muscle. Kojima, Kazu’s head of security, knelt to help her off the ground.</p>
+  <p>"Elena, are you okay? Why are you running—" He looked her over, eyes first widening with concern, then narrowing with suspicion as he took in her disheveled hair, missing shoes, and heaving breaths.</p>
+  <p>"I need to see Kazu right away. It’s an emergency."</p>
+  <p>"He is in a meeting and mustn’t be disturbed."</p>
+  <p>"<em>Please</em>, Kojima. It’s important. Ten thousand lives are at stake." She enunciated each word in a rush.</p>
+  <p>"Ten thousand? Do you mean Veil? The alpha? Did something happen?"</p>
+  <p>"There’s no time, please! I must speak with Kazu!" Her breath came in ragged gasps as she tried to go around the large man, who held out an arm and stopped her.</p>
+  <p>"One moment." He turned and placed his hand against a flat gray panel beside the door, which <em>clicked</em> softly. He pulled it open, stepping inside and closing it.</p>
+  <p>A small group of men stood around a massive boardroom table talking quietly amongst themselves. The door closed a moment later, cutting off Elena’s view.</p>
+  <p>She shifted her weight from foot to foot, cringing at the pressure in her full bladder, but shoved the urge to the back of her mind. Ten thousand lives. It consumed her every thought. Ten thousand lives. <em>Ten thousand lives</em>. Each second felt like an hour. An eternity. She placed an ear against the cold metal door but could hear nothing. Of course the wealthiest family in the world would have a soundproofed boardroom.</p>
+  <p>Elena groaned, trying the handle. It didn’t budge, the door issuing a single beep of warning. She pressed her hand against the sensor. It flashed red. She’d never had access to this room, but she still had to try.</p>
+  <p>The door opened, and Kojima motioned for her to enter. She hurried into the room, looking around at the group of unfamiliar faces until she spotted Kazu. He stood at the far end of the table, a stern expression on his face, eyes devoid of their usual warmth.</p>
+  <p>"Elena? Why are you here? Veil launches in minutes." He paused, eyes moving from her messy hair to her shoeless feet. "When was the last time you slept?"</p>
+  <p>"We have to stop the launch!" Her voice broke with strain. "We have to stop it, <em>now!"</em></p>
+  <p>"Mr. Habashi, who is this woman? She appears quite mad," asked a tall, thin man in a fine suit with a distinctive British accent.</p>
+  <p>"Elena is the Director of Cognitive Transference. What is the matter, Elena?"</p>
+  <p>"We have to stop the launch!" Elena struggled with herself for a moment, fighting to say something <em>more</em>, to elaborate further on the dangerous precipice they wavered upon. Her mind seemed to be stuck in a loop. "Ten thousand lives are at stake!"</p>
+  <p>Kazu squinted at her.</p>
+  <p>A pale man with an American drawl spoke. "She found it. I told you she would."</p>
+  <p>"Found…" Elena looked from the pale man to Kazu, who still stood at the far end of the long boardroom table. "You knew they would all die?"</p>
+  <p>"That is where you are mistaken. They aren’t going to <em>die</em>." Kazu spoke with gentle resolve, some of the chill in his gaze melting. "They are going on a journey."</p>
+  <p>"I saw the numbers. I did the calculations. They will die when they enter those pods."</p>
+  <p>"Yes, their bodies wi—" Kazu was interrupted by another man, one Elena hadn’t noticed in her frantic initial search for Kazu.</p>
+  <p>"That is confidential," the man held up his hand. He wore a military uniform that Elena wasn’t able to identify. Close-cropped gray hair topped a heavily scarred head. His accent was also American, though more clipped, biting off the words. "She must not be told."</p>
+  <p>"She already knows too much," the other American chimed in. "I warned you about her. We should have cut access to the file days ago when she started digging."</p>
+  <p>"Elena has been with the Habashi Corporation for fifteen years. If anyone can be trusted with this information, it is her."</p>
+  <p>"That is the problem," the military man said. "<em>No one</em> can be trusted with this information."</p>
+  <p>Kazu glowered at the man for a long moment. Elena’s heart raced.</p>
+  <p>"We don’t have time for this!" she shouted. "People are going to die! <em>Ten thousand!"</em></p>
+  <p>Kazu looked away, his shoulders falling. The man in the military attire smiled, nodding to the other American.</p>
+  <p>"Ten thousand and <em>one</em>," the American said, a mocking edge to his voice. "So kind of you to volunteer."</p>
+  <p>"That is not going to hap—" Kazu was cut off once again by the military man.</p>
+  <p>"It <em>is</em>. You should have kept a tighter leash on your people; this is on you." His cold gaze shifted from Kazu to Elena, then back. "The project will continue. The abnormality requires further study, as you know."</p>
+  <p>Kazu sighed. “Take her four doors down. The floor model is functional. Initiate the process.” He nodded to Kojima as he spoke.</p>
+  <p>The big man hesitated for a moment, a look of confusion on his face. "Doesn’t she need to be cleansed first, like the other participants?"</p>
+  <p>Elena’s mind whirled. Was this really happening? Was she about to die? She turned and grabbed the door handle as Kazu replied. The handle didn’t budge.</p>
+  <p>"That process isn’t necessary. It’s as she said; the bodies die. The minds, however—" He was interrupted by the same man yet again, but Kazu raised his voice and continued over his protestations. "She will be gone soon. There is no way back. It is a one-way trip. The secret is safe."</p>
+  <p>Kazu looked to Elena, warmth and regret softening his gaze. "You will see, Elena. Your mind will go somewhere else. A new world, full of potential. Energy. Resources. We haven’t determined much beyond that; the flow of energy travels away from us and must be studied further. Veil is not a game. It is a… <em>portal</em>, of sorts. Those who enter are recreated, though we still have much to learn. The journey is one way. It only takes information, getting it back is nearly impossible. Finding a way to reverse or simply tap into this power could solve the resource problem our world faces." He sighed, nodding to Kojima once again.</p>
+  <p>"You’re killing them!" she screamed. "You’re killing me!"</p>
+  <p>Kojima’s hands wrapped around her upper arms, twin grips like unyielding steel. He stepped to the door as Kazu walked around the table and placed his hand on the sensor, opening it.</p>
+  <p>"You aren’t going to die. Your mind will live. We know that much. After this test, we will know more. I wish you the best in your new life."</p>
+  <p>Elena struggled against Kojima, but his hands were immovable; it was like fighting a mountain. She screamed as he began walking her down the hall.</p>
+  <p>"You’re killing me! You’re killing me!" she repeated the words, a mantra to fight back the dread that threatened to drown her. Her mind reeled, unable to form a coherent thought, stuck in a loop.</p>
+  <p>She was going to <em>die</em>. She thought of her cat, Cheshire. He had an automatic feeder and an automatic litter box, but they wouldn’t last forever. A few more days, at most. The realization pulled her out of the spiral. Her baby. Tears spilled over her cheeks, and snot clogged her nose.</p>
+  <p>"My baby, please, please no." She sniffed and began sobbing. "My Cheshire kitty. <em>Please</em>."</p>
+  <p>Kojima placed a hand against the sensor. Elena pulled with all she had, but Kojima’s other hand held her in place with ease. He trembled. They had known each other. Not closely, but she had been an officer with the corporation for more than a decade. They were far from strangers.</p>
+  <p>"Please, Kojima. Don’t let Cheshire starve."</p>
+  <p>Kojima pulled her into the small room. A pod sat in the middle. Thick bundles of wiring ran down from the ceiling and up from the floor into the egg-shaped device.</p>
+  <p>"Please." She whispered the word. Her throat burned from screaming. She was <em>tired</em>. There was a cold wetness at her crotch; she had relieved herself at some point in the struggle. She didn’t care.</p>
+  <p>Her breath was barely more than a whisper. "Please don’t let Cheshie die."</p>
+  <p>Kojima turned Elena, guiding her into the machine with a firm hand. She tried to resist. For the briefest moment, she managed to stop him from pushing her in.</p>
+  <p>"I will see that Cheshire is taken care of. Stop resisting. This must happen." A single tear welled in the stoic man’s eye.</p>
+  <p>She sighed, his words a balm to her tempestuous mind. She stopped fighting. It had taken all of the physical might she could muster just to resist at all. Cheshire would be okay. Above all else, Kojima held to his own peculiar sense of honor and duty. She sat back, a great weight shifting from her shoulders. There was a strong pinch as something injected into her upper arm.</p>
+  <p>She slept. A brief moment of darkness; then she was standing on rolling hills that stretched as far as she could see in every direction. Soft grass sank below her feet. Elena looked down at her hands and arms. They were a featureless white. Her body was a blank avatar, like a mannequin.</p>
+  <p>She recognized this field, her figure. They were programmed into the game. The character generation sequence. A blank slate to begin in a new world. It was <em>real</em>. But how?</p>
+  <p>Text appeared, floating in front of her.</p>
+  <p class="sys"><strong>[System booting…]</strong></p>
+  <div class="scene-break" aria-hidden="true"><img src="emblem-gold.png" width="334" height="256" alt=""></div>
+  <p>A year of my life, signed away with a few simple gestures on a tablet while standing in a semi-enclosed booth that made a mockery of any sense of privacy. Countless chimes of affirmation sounded as others signed, each for their own reasons.</p>
+  <p>Me?</p>
+  <p>Just a failed musician with nothing left.</p>
+  <p>This opportunity was a parting gift from my late brother, Aiden. Of course I signed. Who wouldn't? Veil was marketed as a revolutionary, fully immersive VRMMO (Virtual Reality Massively Multiplayer Online Game). "A new world, full of potential," as all the advertisements said.</p>
+  <p>I would make the most of this alpha test. I remembered late-night conversations with Aiden fondly. He talked about his dreams and goals within Veil as I plucked out notes on my guitar. He’d been so excited to experience the fantastical new world. Not much was known about Veil, but he knew what he wanted to do. It was the same thing he did in real life, save those in need. His energy had been palpable, contagious.</p>
+  <p>I would do it, in honor of his memory. I would be a goddamned hero.</p>
+  <p>Cherry blossom petals drifted around me, generated from thin air about ten feet above where I stood. The blossoms remained on the ground for a few moments before dissipating.</p>
+  <p>I reached out and grabbed one between featureless fingers. Calluses built over years spent playing guitar were just… gone. My arms, legs—my whole body—was a smooth off-white.</p>
+  <p>I squeezed the blossom. The silky texture gained the faintest hint of moisture, releasing a familiar perfume. I rubbed it gently, bringing it to my face and inhaling. The realism surpassed my expectations.</p>
+  <p>The scent of cherry blossom petals reminded me of a festival my city held every spring. I’d been there with my younger brother just a few months ago.</p>
+  <p>I remembered us walking down a path, laughing and sharing a fried pastry we bought from a food vendor, planning our reunion a year and a half later when he would emerge from the alpha.</p>
+  <p>That was the day he told me he’d been accepted into Veil, one of 10,000 from millions of hopefuls. He was the whole reason I was here. I wasn’t chosen. I was, however, a close enough biological match to my brother that I had been placed on a reserve list as a backup.</p>
+  <p>A tragic loss of life, the news outlets called it. Dozens dead in a raging apartment fire. It had been his last night on duty at the fire department before taking an extended vacation to participate in the alpha. He’d managed to save a little girl. Her family had been at the funeral.</p>
+  <p>It felt like months had passed since that day, years even. It also seemed like yesterday. I squeezed the petal between my fingers harder, and it dissipated into tiny motes of pink light that drifted apart.</p>
+  <p>Text appeared, floating in front of me.</p>
+  <p class="sys"><strong>[Initiating integration into the world of Aestra…]</strong></p>
+  <p>I looked around, and the text followed my field of vision, fixed in the center of my view.</p>
+  <p>It didn’t produce the motion sickness I’d come to expect from the heads-up display in other VR games. It felt natural, which was an odd feeling since text floating in the air was anything but.</p>
+  <p>After a few moments, the text blinked and was replaced with:</p>
+  <p class="sys"><strong>[Cognitive resonance with Aestra attuned!]</strong></p>
+  <p class="sys"><strong>[Adjusting and Preparing Individual Cognitive and Physical Specifications…]</strong></p>
+  <p>Cognitive and Physical Specifications? What an odd way of describing what seemed to be a character creation screen, but I chalked it up to being an immersive element, which was a nice touch.</p>
+  <p>A large, semi-transparent circular display populated in front of me, a variety of races from the shoulders up depicting <strong>Elf</strong>, <strong>Dwarf</strong>, <strong>Gnome</strong>, <strong>Human</strong>, and <strong>Beastkin</strong>. The races all had drop-down menus denoting sub-races. There were several other grayed-out boxes with shadowy figures labeled <strong>Unavailable</strong>. I mentally selected the drop-down for <strong>Elf</strong>, and a submenu appeared displaying three options: <strong>Wood Elf</strong>, <strong>High Elf</strong>, and <strong>Aquatic Elf</strong>.</p>
+  <p>They all looked like variations of the stereotypically slender, attractive elf found in most fictional worlds. Aquatic elves had a bluish tint to their skin and gills on their necks; their eyes had some kind of film over them.</p>
+  <p>I closed the submenu and went back, noticing an icon in a box on the bottom right. It stood out as the only box not containing a headshot. Three interwoven arches stood side by side, overlapping and drawn inward at the edges. They were a dull, bronze-like metallic color.</p>
+  <p class="sys"><strong>[Random - randomizes race and forgoes class selection. This option is not recommended for beginners! Class selection will be completed by an evaluation at the Adventurer’s Guild. Provides a small bonus to skill experience up to Mastery rank. Currently unavailable.]</strong></p>
+  <p>I looked back at the other icons that were grayed out and marked as unavailable, momentarily confused because this random icon was not similarly grayed out. There was no "unavailable" text overlaying the symbol like the other unavailable options. The only indicator that it was not selectable was in the description. I pulled up the description to read it again, and the entire display flickered for a few seconds before distorting and minimizing. It was replaced with a wall of text, which spoke in my mind in an excited voice as I read it.</p>
+  <p class="sys"><strong>[You have selected "Random!" Brave choice! The world of</strong> <strong><em>Aestra</em></strong> <strong>is unforgiving and dangerous. You will begin with a bonus to skill advancement and an item:</strong> <strong><em>Chit of Admittance</em></strong><strong>. Seek out the Adventurer’s Guild in your starting town for next steps!]</strong></p>
+  <p>The field exploded into countless pixels that continued breaking apart into smaller pieces as the ground gave way beneath my feet and I fell backwards into blackness. It lasted less than a second, and I landed hard as the world reformed around me.</p>
+  <p>I lay in an alley between two buildings cobbled together from a variety of metals and wood. One of my feet sank in a filthy puddle of what I hoped was water. I sat up, looking around for my instrument in a moment of panic before remembering I was a world away.</p>
+  <p>"I didn’t choose ‘random,’" I grumbled. A sense of betrayal surged through me. There was no re-rolling characters in Veil, not in the alpha at least. The choice had been ripped from my hands by a system glitch.</p>
+  <p>My arms and hands were no longer the blank white they had been in the character creation screen. They were now sickly and pale, elongated, with nearly translucent nails. How would the frets feel under these fingers?</p>
+  <p>I wore filthy rags that could barely be called clothing. My shoes were nothing more than two strips of thick cloth sewn to pieces of leather, one of which was now soaked thanks to my unfortunate entrance.</p>
+  <p>As I climbed to my feet, a gruff voice from behind pulled me from my thoughts.</p>
+  <p>"What’s this, now?" The words ran together in a barely understandable slur.</p>
+  <p>A human man in a tattered leather vest and pants stood nearby. He stepped closer, worn boots crunching something underfoot. He brandished a wickedly curved dagger. The sense of betrayal drained from my body, replaced with a knot of tension and fear.</p>
+  <p>"It’s my lucky day. Guards’ll pay gold for your head, baby-snatcher." He sneered, stepping towards me.</p>
+  <p>I raised my hands and took a hesitant step back. A nameplate above his head read Jack in gently glowing blue lettering.</p>
+  <p>A notification appeared, and time seemed to slow as I read it. The text was accompanied by the same voice from character creation:</p>
+  <p class="sys"><strong>[New Quest!</strong> <strong><em>Evade capture</em></strong><strong>. You have been recognized as a wanted race. Convince your assailant, through words or actions, not to turn you in.]</strong></p>
+  <p class="sys"><strong>[Reward: Zinc Clothing Chest, Copper Adventurer’s Chest, Copper Coins x10, Experience Points x1,000.]</strong></p>
+  <p class="sys"><strong>[WARNING! This is a compulsory quest. It will be accepted automatically. Failure will result in negative consequences, up to and including death.]</strong></p>
+      </div>
+      </div>
     </div>
+    <div class="reader-toggle"><button class="btn btn-ghost" type="button" id="reader-toggle" aria-controls="reader" aria-expanded="false">Open the full chapter</button></div>
     <footer>
       <a class="btn btn-azure" href="https://www.royalroad.com/fiction/189111/the-bombastic-busker-a-bardic-progression-portal/chapter/3889588/book-1-chapter-2-the-first-transformation" target="_blank" rel="noopener">Continue to Chapter Two</a>
       <a href="https://www.royalroad.com/fiction/189111/the-bombastic-busker-a-bardic-progression-portal" target="_blank" rel="noopener">Follow on Royal Road</a>
@@ -423,5 +440,29 @@ document.querySelectorAll('form[data-endpoint]').forEach(function (form) {
   });
 });
 </script>
+<script>
+(function () {
+  var reader = document.getElementById('reader');
+  var win = document.getElementById('reader-window');
+  var btn = document.getElementById('reader-toggle');
+  if (!reader || !win || !btn) return;
+  function checkEnd() {
+    reader.classList.toggle('at-end', win.scrollTop + win.clientHeight >= win.scrollHeight - 8);
+  }
+  win.addEventListener('scroll', checkEnd, { passive: true });
+  checkEnd();
+  btn.addEventListener('click', function () {
+    var collapsed = reader.classList.toggle('is-collapsed');
+    btn.setAttribute('aria-expanded', String(!collapsed));
+    btn.textContent = collapsed ? 'Open the full chapter' : 'Collapse the chapter';
+    if (collapsed) {
+      win.scrollTop = 0;
+      document.getElementById('chapter-one').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    checkEnd();
+  });
+})();
+</script>
+
 </body>
 </html>
