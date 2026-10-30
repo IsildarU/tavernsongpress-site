@@ -70,7 +70,7 @@ a:hover { color: var(--azure-deep); }
 .mast { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
   padding-bottom: .9rem; border-bottom: 1px solid var(--rule); }
 .mark { display: flex; align-items: center; gap: .6rem; font: 1.35rem/1 var(--display); color: var(--ink); text-decoration: none; letter-spacing: .02em; }
-.mark img { width: auto; height: 1.9rem; flex: none; }
+.mark img { width: auto; height: 2.2rem; flex: none; }
 .mast nav { display: flex; gap: 1.25rem; font: 1rem/1 var(--display); letter-spacing: .04em; }
 .mast nav a { color: var(--ink-soft); text-decoration: none; }
 .mast nav a:hover { color: var(--azure); }
@@ -102,13 +102,13 @@ a:hover { color: var(--azure-deep); }
 .btn-gold { background: linear-gradient(180deg, var(--gold-bright), var(--gold)); color: var(--ink); box-shadow: inset 0 -3px 0 rgba(90,60,10,.35), 0 0 0 1px rgba(90,60,10,.35); }
 .btn-gold:hover { color: var(--ink); transform: translateY(-1px); }
 .btn svg { width: 1.1rem; height: 1.1rem; flex: none; }
-.btn-emblem { height: 1.05rem; width: auto; flex: none; }
+.btn-emblem { height: 1.6rem; width: 1.6rem; flex: none; margin-block: -.3rem; }
 .note { font-size: .98rem; color: var(--ink-soft); margin: .8rem 0 0; }
 
 /* chapter */
 .divider { display: flex; align-items: center; gap: 1rem; color: var(--gold); margin-block: 1rem; }
 .divider::before, .divider::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
-.divider img { width: auto; height: 1.5rem; flex: none; }
+.divider img { width: auto; height: 2.4rem; flex: none; }
 .chapter { position: relative; background: var(--vellum); max-width: 44rem; margin: 2rem auto; padding: clamp(1.5rem, 5vw, 3.25rem);
   border-radius: 2px; box-shadow: 0 0 0 1px var(--rule), 0 22px 40px -24px rgba(70,45,10,.5); }
 .chapter::before { content: ""; position: absolute; inset: .5rem; border: 1px solid rgba(201,151,31,.55); pointer-events: none; }
@@ -126,7 +126,7 @@ a:hover { color: var(--azure-deep); }
 .scene-break::before, .scene-break::after { content: ""; width: 5rem; max-width: 25%; height: 1px; }
 .scene-break::before { background: linear-gradient(90deg, transparent, var(--gold)); }
 .scene-break::after { background: linear-gradient(90deg, var(--gold), transparent); }
-.scene-break img { height: 1.4rem; width: auto; opacity: .85; }
+.scene-break img { height: 2rem; width: auto; }
 /* chapter reading window */
 .reader { position: relative; }
 .reader.is-collapsed .reader-window { max-height: min(34rem, 70vh); overflow-y: auto; overscroll-behavior: contain;
@@ -200,7 +200,7 @@ html { scroll-behavior: smooth; }
 <div class="leaf">
   <header class="mast" id="page-top">
     <a class="mark" href="#top" aria-label="Tavern Song Press home">
-      <img src="emblem.png" width="334" height="256" alt="">
+      <img src="emblem-arches.png" width="350" height="256" alt="">
       Tavern Song Press
     </a>
     <nav aria-label="Sections"><a href="#chapter-one">Chapter One</a><a href="#patreon">Read Ahead</a><a href="#author">Author</a><a href="#contact">Contact</a></nav>
@@ -233,14 +233,14 @@ html { scroll-behavior: smooth; }
       <p class="byline">by Brandon Highbaugh</p>
       <p class="pitch">Chanter spent years playing guitar on street corners and in dive bars. Now he's a changeling in a world that hunts his kind, and his first song turns coins, darts and fists into explosives.</p>
       <a class="btn btn-azure" href="https://www.royalroad.com/fiction/189111/the-bombastic-busker-a-bardic-progression-portal" target="_blank" rel="noopener">
-        <img class="btn-emblem" src="emblem-gold.png" width="334" height="256" alt="">
+        <img class="btn-emblem" src="emblem-badge.png" width="128" height="128" alt="">
         Read free on Royal Road
       </a>
       <p class="note">New chapters Monday-Friday</p>
     </div>
   </section>
 
-  <div class="divider" aria-hidden="true"><img src="emblem-gold.png" width="334" height="256" alt=""></div>
+  <div class="divider" aria-hidden="true"><img src="emblem-arches.png" width="350" height="256" alt=""></div>
 
   <article class="chapter" id="chapter-one" aria-labelledby="ch1-title">
     <header>
@@ -331,7 +331,7 @@ html { scroll-behavior: smooth; }
   <p>She recognized this field, her figure. They were programmed into the game. The character generation sequence. A blank slate to begin in a new world. It was <em>real</em>. But how?</p>
   <p>Text appeared, floating in front of her.</p>
   <p class="sys"><strong>[System booting…]</strong></p>
-  <div class="scene-break" aria-hidden="true"><img src="emblem-gold.png" width="334" height="256" alt=""></div>
+  <div class="scene-break" aria-hidden="true"><img src="emblem-arches.png" width="350" height="256" alt=""></div>
   <p>A year of my life, signed away with a few simple gestures on a tablet while standing in a semi-enclosed booth that made a mockery of any sense of privacy. Countless chimes of affirmation sounded as others signed, each for their own reasons.</p>
   <p>Me?</p>
   <p>Just a failed musician with nothing left.</p>
@@ -385,7 +385,7 @@ html { scroll-behavior: smooth; }
   </article>
 
   <section class="ahead" id="patreon" aria-labelledby="patreon-title">
-    <div class="divider" aria-hidden="true"><img src="emblem-gold.png" width="334" height="256" alt=""></div>
+    <div class="divider" aria-hidden="true"><img src="emblem-arches.png" width="350" height="256" alt=""></div>
     <h2 id="patreon-title">Can't wait for the next song?</h2>
     <p>Patrons read chapters before they reach Royal Road and help keep Chanter playing.</p>
     <a class="btn btn-gold" href="https://www.patreon.com/brandonhighbaugh" target="_blank" rel="noopener">
@@ -406,7 +406,7 @@ html { scroll-behavior: smooth; }
   </section>
 
   <section class="post" aria-label="Newsletter and contact">
-    <div class="divider" aria-hidden="true"><img src="emblem-gold.png" width="334" height="256" alt=""></div>
+    <div class="divider" aria-hidden="true"><img src="emblem-arches.png" width="350" height="256" alt=""></div>
     <div class="card" id="contact">
       <h2>Contact Brandon</h2>
       <p>Questions, kind words, or rights inquiries. Brandon reads every message.</p>
