@@ -155,6 +155,13 @@ a:hover { color: var(--azure-deep); }
 @media (max-width: 40rem) { .author { grid-template-columns: minmax(0, 1fr); text-align: center; } .portrait { max-width: 11rem; margin-inline: auto; } }
 
 /* newsletter + contact */
+.signup { max-width: 44rem; margin: 1.75rem auto 0; }
+.signup .card h2 { font-size: clamp(1.35rem, 3.6vw, 1.75rem); line-height: 1.2; text-wrap: balance; }
+.signup-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .7rem; }
+.signup-actions { display: flex; flex-wrap: wrap; gap: .7rem; }
+.signup-actions .btn { margin-top: 0; }
+.status:empty { display: none; }
+@media (max-width: 40rem) { .signup-fields { grid-template-columns: minmax(0, 1fr); } }
 .post { max-width: 44rem; margin: 2rem auto 0; display: flex; flex-direction: column; gap: 1.5rem; }
 .post .divider { margin-block: .5rem; }
 .card { min-width: 0; background: var(--vellum); padding: 1.5rem; border-radius: 2px; box-shadow: 0 0 0 1px var(--rule), 0 14px 26px -20px rgba(70,45,10,.5); display: flex; flex-direction: column; gap: .8rem; }
@@ -194,6 +201,24 @@ a:hover { color: var(--azure-deep); }
     </a>
     <nav aria-label="Sections"><a href="#chapter-one">Chapter One</a><a href="#patreon">Read Ahead</a><a href="#author">Author</a><a href="#contact">Contact</a></nav>
   </header>
+
+  <section class="signup" aria-labelledby="newsletter-title">
+    <div class="card" id="newsletter">
+      <h2 id="newsletter-title">Receive special short stories and hear about fiction launches first! Join the Newsletter or Patreon!</h2>
+      <form data-endpoint="https://formsubmit.co/ajax/45c10b2294c77297d7bf8f89454565a0" data-subject="New newsletter signup: Tavern Song Press" data-ok="You're on the list. Welcome to the tavern!">
+        <div class="signup-fields">
+          <div class="field"><label for="nl-name">Name</label><input id="nl-name" name="name" type="text" autocomplete="given-name" required></div>
+          <div class="field"><label for="nl-email">Email</label><input id="nl-email" name="email" type="email" autocomplete="email" required></div>
+        </div>
+        <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="signup-actions">
+          <button class="btn btn-azure" type="submit">Join the newsletter</button>
+          <a class="btn btn-gold" href="https://www.patreon.com/brandonhighbaugh" target="_blank" rel="noopener">Join on Patreon</a>
+        </div>
+        <p class="status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
 
   <section class="hero" id="top">
     <div class="streaks" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
@@ -377,18 +402,6 @@ a:hover { color: var(--azure-deep); }
   </section>
 
   <section class="post" aria-label="Newsletter and contact">
-    <div class="divider" aria-hidden="true"><img src="emblem-gold.png" width="334" height="256" alt=""></div>
-    <div class="card" id="newsletter">
-      <h2>Join the Newsletter</h2>
-      <p>New chapters, book news and the occasional tavern tale, straight to your inbox.</p>
-      <form data-endpoint="https://formsubmit.co/ajax/45c10b2294c77297d7bf8f89454565a0" data-subject="New newsletter signup: Tavern Song Press" data-ok="You're on the list. Welcome to the tavern!">
-        <div class="field"><label for="nl-name">Name</label><input id="nl-name" name="name" type="text" autocomplete="given-name" required></div>
-        <div class="field"><label for="nl-email">Email</label><input id="nl-email" name="email" type="email" autocomplete="email" required></div>
-        <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <button class="btn btn-azure" type="submit">Join the newsletter</button>
-        <p class="status" role="status" aria-live="polite"></p>
-      </form>
-    </div>
     <div class="divider" aria-hidden="true"><img src="emblem-gold.png" width="334" height="256" alt=""></div>
     <div class="card" id="contact">
       <h2>Contact Brandon</h2>
